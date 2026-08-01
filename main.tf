@@ -89,17 +89,12 @@ resource "azurerm_mssql_virtual_machine" "mssql_virtual_machine" {
 }
 # Creates additional Datadisk for DB
 resource "azurerm_managed_disk" "disk" {
-  name                          = "${var.name}-dbdataDisk"
-  location                      = var.location
-  resource_group_name           = var.resource_group_name
-  storage_account_type          = var.managed_disk_type
-  create_option                 = var.datadisk_create_option
-  disk_size_gb                  = var.data_disk_size_gb
-  disk_access_id                = var.disk_access_id
-  network_access_policy         = var.network_access_policy
-  public_network_access_enabled = var.public_network_access_enabled
-
-
+  name                 = "${var.name}-dbdataDisk"
+  location             = var.location
+  resource_group_name  = var.resource_group_name
+  storage_account_type = var.managed_disk_type
+  create_option        = var.datadisk_create_option
+  disk_size_gb         = var.data_disk_size_gb
 }
 
 # Attaches datadisk to VM
