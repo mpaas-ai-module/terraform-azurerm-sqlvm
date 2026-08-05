@@ -216,6 +216,10 @@ variable "services_vault_resource_group_name" {
 
 # Keyvault
 variable "keyvault_name" {
+  # Optional so a caller passing key_vault_id can omit it; "" turns the
+  # plan-time lookup off (see the count on the data source).
+  default = ""
+
   type        = string
   description = "keyvault name to store the sql password"
 
