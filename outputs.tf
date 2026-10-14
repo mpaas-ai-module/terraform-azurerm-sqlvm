@@ -2,10 +2,10 @@
 # Exposes id / name / connection attributes other resources consume.
 
 output "virtual_machine_id" {
-  value = { for k, v in azurerm_virtual_machine.virtual_machine : k => v.id }
+  value = azurerm_virtual_machine.virtual_machine.id
 }
 output "virtual_machine_name" {
-  value = { for k, v in azurerm_virtual_machine.virtual_machine : k => v.name }
+  value = azurerm_virtual_machine.virtual_machine.name
 }
 output "network_interface_id" {
   value = azurerm_network_interface.network_interface.id
